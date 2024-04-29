@@ -18,6 +18,7 @@ const Home = () => {
               <p>{movieData.Title}</p>
               <p>{movieData.Genre}</p>
               <p>{movieData.Language}</p>
+              <p>hehehehe</p>
             </div>
 
             <div className="border border-black-500 p-10 flex flex-col items-center">
