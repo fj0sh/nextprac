@@ -1,13 +1,17 @@
 type MovieProps = {
-    id?:number;
-    Title?:string;
-    Country?:string;
+    imdbID:number;
+    
     Actors?:string;
-    Poster?:string;
-    Realeased?:string;
-    Language?:string;
+    Country?:string;
+    Director?:string;
     Genre?:string;
+    Language?:string;
+    Poster?:string;
     Plot?:string;
+    Released?:string;
+    Runtime?:string;
+    Title?:string;
+    
     Response?:'False' | 'True';
 }
 

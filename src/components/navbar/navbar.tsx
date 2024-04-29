@@ -10,7 +10,7 @@ import React, {
 import Link from "next/link";
 import Button from "../Button/button";
 import { getMovie } from "@/services/getMovie";
-import { useMovieContext } from "@/providers";
+import { useMovieContext } from "@/providers/SearchProvider";
 import useMovies from "@/hooks/useMovies";
 
 const Navbar = () => {
@@ -31,7 +31,7 @@ const Navbar = () => {
           className="border border-black-1000"
           onChange={(e) => setSearch(e.target.value)}
         />
-        <Button onClick={clickhandler}></Button>
+        <Button onClick={clickhandler} name="Search"></Button>
       </div>
 
       <div className="flex justify-end gap-6">

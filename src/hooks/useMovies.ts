@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { getMovie } from '@/services/getMovie'
 import { MovieProps } from '@/interfaces'
-import { useMovieContext } from '@/providers'
+import { useMovieContext } from '@/providers/SearchProvider'
 
 const useMovies = () => {
     const[movieData, setmovie] = useState<MovieProps>()
@@ -11,7 +11,7 @@ const useMovies = () => {
         try {
             if(movieInput){       
                 const response = await getMovie(movieInput)
-                console.log(response)
+                // console.log(response)
                 if(response.error){
                     console.log("an error happened");
                 }
@@ -23,7 +23,7 @@ const useMovies = () => {
     }
     useEffect(() => {
         handleDataFetch()
-        console.log(movieInput);
+        // console.log(movieInput);
     }, [movieInput]);
 
     return {movieData}

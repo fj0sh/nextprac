@@ -1,7 +1,7 @@
 "use client"
 
 import { MovieProps } from "@/interfaces";
-import { useMovieContext } from "@/providers";
+import { useMovieContext } from "@/providers/SearchProvider";
 import axios from "axios";
 
 const APIkey = "e1898035";

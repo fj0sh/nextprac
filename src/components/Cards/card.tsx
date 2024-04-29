@@ -1,4 +1,4 @@
-import { useMovieContext } from "@/providers";
+import { useMovieContext } from "@/providers/SearchProvider";
 import React, { useEffect } from "react";
 type cardProps = {
   children?: React.ReactNode;
