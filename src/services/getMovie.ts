@@ -3,6 +3,7 @@
 import { MovieProps } from "@/interfaces";
 import { useMovieContext } from "@/providers/SearchProvider";
 import axios from "axios";
+import { useState } from "react";
 
 const APIkey = "e1898035";
 const temp = "invincible"
@@ -14,7 +15,6 @@ const getMovie = async(movieInput:MovieProps) =>{
     try {
         const response = await axios.get(`https://www.omdbapi.com/?t=${movieInput}&apikey=${APIkey}`)        
         if(response.data) return response.data 
-
     } catch (error) {
         console.log(error)
     }

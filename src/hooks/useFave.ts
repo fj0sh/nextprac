@@ -1,7 +1,8 @@
 import React from 'react'
 
 const useFave = () => {
-  return 
+  
+  return;
 }
 
 export default useFave
