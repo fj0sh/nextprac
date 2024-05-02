@@ -1,15 +1,12 @@
 "use client";
 
-import { Card } from "@/components";
-import useMovies from "@/hooks/useMovies";
+import { Button, Card } from "@/components";
 import { MovieProps } from "@/interfaces";
-import { useMovieContext } from "@/providers/SearchProvider";
 import { useFaveContext } from "@/providers/favoritesProvider";
-import React, { use } from "react";
+import Link from "next/link";
 
 const Favorites = () => {
   const { fave } = useFaveContext();
-  console.log(fave);
 
   if (fave.length !== 0) {
     return (
@@ -30,6 +27,15 @@ const Favorites = () => {
                   <p className="text-xs">{data.Genre}</p>
                   <p>{data.Plot}</p>
                 </div>
+                <Link
+                  href={`favorites/${data.imdbID}`}
+                  className="flex justify-center items-center mx-[25px]"
+                >
+                  <Button
+                    name="View"
+                    className=" border border-black-500 p-2 rounded"
+                  ></Button>
+                </Link>
               </Card>
             );
           })}

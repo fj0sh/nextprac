@@ -1,5 +1,5 @@
 type MovieProps = {
-    imdbID:number;
+    imdbID:string;
     
     Actors?:string;
     Country?:string;
@@ -14,9 +14,6 @@ type MovieProps = {
     
     Response?:'False' | 'True';
 }
-
-
-
 
 export type {MovieProps}
 

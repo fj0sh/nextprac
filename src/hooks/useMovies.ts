@@ -5,17 +5,23 @@ import { useMovieContext } from '@/providers/SearchProvider'
 
 const useMovies = () => {
     const[movieData, setmovie] = useState<MovieProps>()
+    const[loading, setLoading] = useState(false)
     const{movieInput} = useMovieContext()
 
     const handleDataFetch  = async() =>{   
         try {
-            if(movieInput){       
+            if(movieInput){
+                setLoading(true)
                 const response = await getMovie(movieInput)
-                // console.log(response)
                 if(response.error){
                     console.log("an error happened");
                 }
-                if(response) setmovie(response)
+                if(response) {
+                    setTimeout(() => {
+                       setLoading(false)
+                    setmovie(response) 
+                    }, 300);
+                    }
             }
         } catch (error) {
             console.log(error)
@@ -23,10 +29,9 @@ const useMovies = () => {
     }
     useEffect(() => {
         handleDataFetch()
-        // console.log(movieInput);
     }, [movieInput]);
 
-    return {movieData}
+    return {loading, movieData}
 }
 
 export default useMovies
