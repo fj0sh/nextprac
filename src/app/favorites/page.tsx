@@ -5,6 +5,8 @@ import { MovieProps } from "@/interfaces";
 import { useFaveContext } from "@/providers/favoritesProvider";
 import Link from "next/link";
 
+import { MdPreview } from "react-icons/md";
+
 const Favorites = () => {
   const { fave } = useFaveContext();
 
@@ -18,7 +20,7 @@ const Favorites = () => {
                 <div className="w-[20%] p-2">
                   <img
                     src={data.Poster}
-                    alt=""
+                    alt={`Poster of ${data.Title}`}
                     className="w-[100px] h-[150px]"
                   />
                 </div>
@@ -32,9 +34,11 @@ const Favorites = () => {
                   className="flex justify-center items-center mx-[25px]"
                 >
                   <Button
-                    name="View"
-                    className=" border border-black-500 p-2 rounded"
-                  ></Button>
+                    name=""
+                    className=" border border-black-500 p-2 rounded flex gap-1 items-center"
+                  >
+                    <MdPreview /> View
+                  </Button>
                 </Link>
               </Card>
             );

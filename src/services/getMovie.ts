@@ -1,9 +1,7 @@
 "use client"
 
 import { MovieProps } from "@/interfaces";
-import { useMovieContext } from "@/providers/SearchProvider";
 import axios from "axios";
-import { useState } from "react";
 
 const APIkey = "e1898035";
 const temp = "invincible"
