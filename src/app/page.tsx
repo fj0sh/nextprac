@@ -12,7 +12,6 @@ const Home = () => {
   const { fave, setFave } = useFaveContext();
   const [btnDisable, setBtndisable] = useState(false);
   const { loading } = useMovies();
-  const key = process.env.API_KEY;
 
   const faveSetter = () => {
     setFave((prev: Array<string>) => [...prev, movieData]);
@@ -28,9 +27,6 @@ const Home = () => {
       setBtndisable(false);
     }
   }, [fave, movieData]);
-
-  console.log(process.env);
-  console.log(key);
 
   if (!loading) {
     return (

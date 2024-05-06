@@ -1,7 +1,6 @@
 "use client";
 
 import { Card } from "@/components";
-import useMovies from "@/hooks/useMovies";
 import { MovieProps } from "@/interfaces";
 import { useFaveContext } from "@/providers/favoritesProvider";
 import { useRouter } from "next/navigation";
@@ -11,7 +10,7 @@ const favoriteId = ({ params }: { params: { imdbID: string } }) => {
   const { fave } = useFaveContext();
   const router = useRouter();
 
-  const temp: MovieProps = fave?.find(
+  const faveMovie = fave?.find(
     (data: MovieProps) => params.imdbID === data.imdbID
   );
 
@@ -19,25 +18,29 @@ const favoriteId = ({ params }: { params: { imdbID: string } }) => {
     router.push("/");
   }
 
-  if (temp) {
+  if (faveMovie) {
     return (
       <>
         <Card className="flex flex-col items-center gap-4">
-          <div className="w-[80%] flex justify-center">
-            <img src={temp.Poster} alt="" className="w-[200px] h-[250px]" />
+          <div className="w-[80%] flex justify-center border border-black-500 p-3">
+            <img
+              src={faveMovie.Poster}
+              alt=""
+              className="w-[200px] h-[250px]"
+            />
             <div className="p-2">
-              <p className="font-bold">{temp.Title}</p>
-              <p className="text-xs">{temp.Genre}</p>
-              <p>{temp.Released}</p>
+              <p className="font-bold">{faveMovie.Title}</p>
+              <p className="text-xs">{faveMovie.Genre}</p>
+              <p>{faveMovie.Released}</p>
             </div>
           </div>
-          <div className="flex flex-col gap-4 w-[80%] mx-[25px]">
+          <div className="flex flex-col gap-4 w-[80%] mx-[25px]  border border-black-500 p-3">
             <div className=" flex flex-col items-start">
-              <p>{temp.Director}</p>
-              <p>{temp.Actors}</p>
-              <p>{temp.Runtime}</p>
+              <p>{faveMovie.Director}</p>
+              <p>{faveMovie.Actors}</p>
+              <p>{faveMovie.Runtime}</p>
             </div>
-            <p>{temp.Plot}</p>
+            <p>{faveMovie.Plot}</p>
             <p></p>
           </div>
         </Card>

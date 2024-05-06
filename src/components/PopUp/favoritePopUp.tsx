@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import Button from "../Button/button";
 import { useRouter } from "next/navigation";
-import usePopUp from "@/hooks/usePopUp";
 
 interface favPopUpProps {
   onClick?: () => void;
